@@ -2,6 +2,7 @@ const express = require("express");
 const dotenv = require("dotenv");
 
 const conectDataBase = require("./src/database/mongoose.database");
+const TaskModel = require("./src/model/task.model");
 
 dotenv.config();
 
@@ -9,8 +10,8 @@ const app = express();
 
 conectDataBase();
 
-app.get("/", (req, res) => {
-    const tasks = [{ description: "estudar programacao", isCompleted: false }];
+app.get("/", async (req, res) => {
+    const tasks = await TaskModel.find({});
     res.status(200).send(tasks);
 });
 
