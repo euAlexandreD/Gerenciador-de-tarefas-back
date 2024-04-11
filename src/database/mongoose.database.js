@@ -9,6 +9,8 @@ const conectDataBase = async () => {
                     return console.log(
                         `Cloud not connect to database: ${error}`
                     );
+                } else {
+                    console.log("Connected to database");
                 }
             }
         );
