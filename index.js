@@ -27,7 +27,7 @@ app.post("/tasks", async (req, res) => {
 
         res.status(201).send(newTasks);
     } catch (error) {
-        res.status(400).send(error.message);
+        res.status(500).send(error.message);
     }
 });
 
